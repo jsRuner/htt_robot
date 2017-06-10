@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<root>
+    <item id="Title"><![CDATA[Discuz! Plugin]]></item>
+    <item id="Version"><![CDATA[X3,X3.1,X3.2,F1.0]]></item>
+    <item id="Time"><![CDATA[2016-04-02 15:35]]></item>
+    <item id="From"><![CDATA[ ()]]></item>
+    <item id="Data">
+        <item id="plugin">
+            <item id="available"><![CDATA[1]]></item>
+            <item id="adminid"><![CDATA[0]]></item>
+            <item id="name"><![CDATA[聊天机器人]]></item>
+            <item id="identifier"><![CDATA[htt_robot]]></item>
+            <item id="description"><![CDATA[可爱的机器人]]></item>
+            <item id="datatables"><![CDATA[]]></item>
+            <item id="directory"><![CDATA[htt_robot/]]></item>
+            <item id="copyright"><![CDATA[北岸的云wuwenfu.cn]]></item>
+            <item id="version"><![CDATA[2.0]]></item>
+            <item id="__modules">
+
+                <item id="0">
+                    <item id="name"><![CDATA[httrobot]]></item>
+                    <item id="param"><![CDATA[]]></item>
+                    <item id="menu"><![CDATA[]]></item>
+                    <item id="url"><![CDATA[]]></item>
+                    <item id="type"><![CDATA[11]]></item>
+                    <item id="adminid"><![CDATA[0]]></item>
+                    <item id="displayorder"><![CDATA[0]]></item>
+                    <item id="navtitle"><![CDATA[]]></item>
+                    <item id="navicon"><![CDATA[]]></item>
+                    <item id="navsubname"><![CDATA[]]></item>
+                    <item id="navsuburl"><![CDATA[]]></item>
+                </item>
+                <item id="1">
+                    <item id="name"><![CDATA[message]]></item>
+                    <item id="param"><![CDATA[]]></item>
+                    <item id="menu"><![CDATA[聊天记录]]></item>
+                    <item id="url"><![CDATA[]]></item>
+                    <item id="type"><![CDATA[3]]></item>
+                    <item id="adminid"><![CDATA[0]]></item>
+                    <item id="displayorder"><![CDATA[0]]></item>
+                    <item id="navtitle"><![CDATA[]]></item>
+                    <item id="navicon"><![CDATA[]]></item>
+                    <item id="navsubname"><![CDATA[]]></item>
+                    <item id="navsuburl"><![CDATA[]]></item>
+                </item>
+
+
+                <item id="2">
+                    <item id="name"><![CDATA[help]]></item>
+                    <item id="param"><![CDATA[]]></item>
+                    <item id="menu"><![CDATA[接口帮助]]></item>
+                    <item id="url"><![CDATA[]]></item>
+                    <item id="type"><![CDATA[3]]></item>
+                    <item id="adminid"><![CDATA[0]]></item>
+                    <item id="displayorder"><![CDATA[3]]></item>
+                    <item id="navtitle"><![CDATA[]]></item>
+                    <item id="navicon"><![CDATA[]]></item>
+                    <item id="navsubname"><![CDATA[]]></item>
+                    <item id="navsuburl"><![CDATA[]]></item>
+                </item>
+
+                <item id="3">
+                    <item id="name"><![CDATA[more]]></item>
+                    <item id="menu"><![CDATA[更多产品]]></item>
+                    <item id="url"><![CDATA[http://addon.discuz.com/?@20307.developer]]></item>
+                    <item id="type"><![CDATA[3]]></item>
+                    <item id="adminid"><![CDATA[0]]></item>
+                    <item id="displayorder"><![CDATA[0]]></item>
+                    <item id="navtitle"><![CDATA[]]></item>
+                    <item id="navicon"><![CDATA[]]></item>
+                    <item id="navsubname"><![CDATA[]]></item>
+                    <item id="navsuburl"><![CDATA[]]></item>
+                </item>
+
+
+
+
+
+
+
+            </item>
+        </item>
+        <item id="version"><![CDATA[X3,X3.1,X3.2,F1.0]]></item>
+
+        <item id="var">
+
+            <item id="1">
+                <item id="displayorder"><![CDATA[1]]></item>
+                <item id="title"><![CDATA[机器人类型]]></item>
+                <item id="description"><![CDATA[默认是茉莉机器人]]></item>
+                <item id="variable"><![CDATA[robot_type]]></item>
+                <item id="type"><![CDATA[select]]></item>
+                <item id="value"><![CDATA[2]]></item>
+                <item id="extra"><![CDATA[1=图灵机器人
+2=茉莉机器人]]></item>
+            </item>
+
+
+            <item id="2">
+                <item id="displayorder"><![CDATA[2]]></item>
+                <item id="title"><![CDATA[机器人key]]></item>
+                <item id="description"><![CDATA[图灵只需要填写这个。茉莉机器人则需要填写key与密钥.]]></item>
+                <item id="variable"><![CDATA[robot_key]]></item>
+                <item id="type"><![CDATA[text]]></item>
+                <item id="value"><![CDATA[xxxxxxxxxxxxxxxxxxxxxx]]></item>
+                <item id="extra"><![CDATA[]]></item>
+            </item>
+
+            <item id="3">
+                <item id="displayorder"><![CDATA[3]]></item>
+                <item id="title"><![CDATA[机器人secret]]></item>
+                <item id="description"><![CDATA[茉莉机器人必填.图灵的话则可以留空]]></item>
+                <item id="variable"><![CDATA[robot_secret]]></item>
+                <item id="type"><![CDATA[text]]></item>
+                <item id="value"><![CDATA[]]></item>
+                <item id="extra"><![CDATA[]]></item>
+            </item>
+
+
+            <item id="4">
+                <item id="displayorder"><![CDATA[4]]></item>
+                <item id="title"><![CDATA[机器人名称]]></item>
+                <item id="description"><![CDATA[机器人的名字,默认为小小付。]]></item>
+                <item id="variable"><![CDATA[robot_name]]></item>
+                <item id="type"><![CDATA[text]]></item>
+                <item id="value"><![CDATA[小小付]]></item>
+                <item id="extra"><![CDATA[]]></item>
+            </item>
+
+
+
+            <item id="5">
+                <item id="displayorder"><![CDATA[5]]></item>
+                <item id="title"><![CDATA[用户组]]></item>
+                <item id="description"><![CDATA[用户组设置,支持多选。只有该用户组访问论坛才可以看到机器人]]></item>
+                <item id="variable"><![CDATA[groups]]></item>
+                <item id="type"><![CDATA[groups]]></item>
+                <item id="value"><![CDATA[1]]></item>
+                <item id="extra"><![CDATA[]]></item>
+            </item>
+
+
+
+            <item id="6">
+                <item id="displayorder"><![CDATA[6]]></item>
+                <item id="title"><![CDATA[欢迎语设置]]></item>
+                <item id="description"><![CDATA[机器人说的第一句话]]></item>
+                <item id="variable"><![CDATA[welcome_msg]]></item>
+                <item id="type"><![CDATA[text]]></item>
+                <item id="value"><![CDATA[欢迎您的到来,我是小小付，可以陪你聊天哟。]]></item>
+                <item id="extra"><![CDATA[]]></item>
+            </item>
+
+
+
+
+            <item id="7">
+                <item id="displayorder"><![CDATA[7]]></item>
+                <item id="title"><![CDATA[站点域名]]></item>
+                <item id="description"><![CDATA[站点域名,例如 http://bbs.wuwenfu.cn 如果一直机器人一直回复脑袋坏掉了，请务必设置。]]></item>
+                <item id="variable"><![CDATA[site_url]]></item>
+                <item id="type"><![CDATA[text]]></item>
+                <item id="value"><![CDATA[]]></item>
+                <item id="extra"><![CDATA[]]></item>
+            </item>
+
+
+
+            <item id="8">
+                <item id="displayorder"><![CDATA[8]]></item>
+                <item id="title"><![CDATA[开关设置]]></item>
+                <item id="description"><![CDATA[不需要时可以设置为隐藏。默认开启]]></item>
+                <item id="variable"><![CDATA[is_show]]></item>
+                <item id="type"><![CDATA[select]]></item>
+                <item id="value"><![CDATA[1]]></item>
+                <item id="extra"><![CDATA[1=显示机器人
+2=隐藏机器人]]></item>
+
+            </item>
+
+
+
+
+
+
+
+
+
+
+
+
+        </item>
+
+
+
+        <item id="language">
+
+
+
+
+            <item id="scriptlang">
+
+                <item id="help_doc"><![CDATA[<li>图灵官网:http://www.tuling123.com/</li>
+<li>茉莉机器人官网:http://www.itpk.cn/</li>
+<li>复制接口参数，填入插件即可。</li>
+<li>let's go!</li>]]></item>
+
+
+                <item id="error_setting_fid"><![CDATA[插件设置错误:版块未设置]]></item>
+                <item id="error_setting_uid"><![CDATA[插件设置错误:用户组未设置]]></item>
+                <item id="error_setting_key"><![CDATA[插件设置错误:图灵接口密钥没有设置.http://www.tuling123.com/ 请去申请]]></item>
+
+
+
+                <item id="username"><![CDATA[用户名]]></item>
+                <item id="dateline"><![CDATA[请求时间]]></item>
+                <item id="message"><![CDATA[请求内容]]></item>
+                <item id="reply"><![CDATA[机器人回答]]></item>
+                <item id="show_action_succeed"><![CDATA[操作成功]]></item>
+                <item id="del_many"><![CDATA[批量删除]]></item>
+                <item id="search"><![CDATA[查询]]></item>
+                <item id="guest"><![CDATA[游客]]></item>
+
+                <item id="no_message"><![CDATA[还没有人想我提问哟]]></item>
+
+
+
+            </item>
+
+            <item id="installlang">
+
+                <item id="error_curl"><![CDATA[插件工作需要curl模块和file_get_contents函数,请先开启php的allow_url_fopen选项和curl扩展]]></item>
+
+
+
+            </item>
+
+            <item id="templatelang">
+                <item id="zhichiVoice"><![CDATA[开/光 声音]]></item>
+                <item id="zhichiMin"><![CDATA[最小化]]></item>
+                <item id="zhichiMax"><![CDATA[最大化]]></item>
+                <item id="zhichiClose"><![CDATA[关闭会话]]></item>
+                <item id="please_input"><![CDATA[请输入...]]></item>
+                <item id="copyright"><![CDATA[北岸的云]]></item>
+                <item id="send_text"><![CDATA[发送]]></item>
+
+                <item id="pull_text"><![CDATA[点我]]></item>
+
+                <item id="help"><![CDATA[提示:点我,则随机返回别人的问题。立即试试吧。例如 笑话]]></item>
+
+                <item id="moli_datas"><![CDATA[财神爷灵签;月老灵签;观音灵签;签语;注释;解签;白话]]></item>
+                <!-- <item id="moli_data_yuelao"><![CDATA[月老灵签]]></item>
+                <item id="moli_data_guanyin"><![CDATA[观音灵签]]></item>
+
+
+                <item id="moli_data_qianyu"><![CDATA[签语]]></item>
+                <item id="moli_data_zhushi"><![CDATA[注释]]></item>
+                <item id="moli_data_jieqian"><![CDATA[解签]]></item>
+                <item id="moli_data_jieshuo"><![CDATA[解说]]></item>
+                <item id="moli_data_shuoming"><![CDATA[说明]]></item>
+         -->
+
+
+
+
+
+
+
+
+
+
+                <item id="close_text"><![CDATA[要离开我吗?呜呜呜。。。]]></item>
+                <item id="error_empty"><![CDATA[内容不可以为空哟]]></item>
+                <item id="me"><![CDATA[我]]></item>
+                <item id="robot_bug"><![CDATA[哎呀,脑袋坏掉了，请联系我的主人]]></item>
+
+            </item>
+
+
+
+
+        </item>
+
+
+        <item id="checkfile"><![CDATA[check.php]]></item>
+
+        <item id="installfile"><![CDATA[install.php]]></item>
+        <item id="uninstallfile"><![CDATA[uninstall.php]]></item>
+
+
+
+    </item>
+
+
+</root>

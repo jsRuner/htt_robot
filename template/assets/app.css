@@ -1,0 +1,329 @@
+@charset "utf-8";
+body, html {
+    width: 100%;
+    height: 100%;
+}
+/**/
+.MN_kfImg {
+    left: -55px;
+}
+.MN_khImg {
+    right: -55px;
+}
+.MN_answer, .MN_ask {
+    padding: 5px 60px;
+}
+.MN_answer .MN_kfImg, .MN_ask .MN_khImg {
+    width: 40px;
+    height: 40px;
+}
+.MN_kfCtn, .MN_khCtn {
+    margin: 2px 0;
+}
+/**/
+.view {
+    width: 1rem;
+    height: 100%;
+    margin: 0 auto;
+    position: relative;
+}
+
+.back {
+    text-align: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    min-height: 100%;
+    background: #D6D6D6;
+}
+.back p {
+    color: #eee;
+}
+.back .logo {
+    max-width: 1rem;
+    max-height: 80px;
+}
+
+/**/
+.front {
+    height: 100%;
+    position: relative;
+    
+}
+.front .chatScroll {
+    position: relative;
+    overflow: hidden;
+    
+}
+.front .chatScroll .chatCtn {
+    padding: 10px 0;
+    position: absolute;
+    top: 0;
+    left: 0;    
+    background: #EBEBEB;
+    width: 100%;
+    min-height: 100%;
+    box-sizing: border-box;
+}
+
+/**/
+.editCtn {
+    background: #fff;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+}
+.editCtn .editShow {
+    position: relative;
+    height: 0.133rem;
+    border-top: 1px solid #e6e6e6;
+    border-bottom: 1px solid #e6e6e6;
+}
+.editCtn .editShow:after {
+    content: '';
+    display: block;
+    clear: both;
+}
+.editCtn .editShow .cosSome {
+    display: inline-block;
+    box-sizing: border-box;
+    float: left;
+    position: relative;
+    text-align: center;
+    vertical-align: middle;
+}
+.editCtn .editShow .cosStyle {
+    width: 15%;
+    margin-top: 0.02rem;
+}
+.editCtn .editShow .cosStyle .goVideo {
+    display: none;
+    width: 0.075rem;
+    height: 0.075rem;
+    background: url(../images/voice@2x.png) no-repeat center;
+    background-size: contain;
+
+}
+.editCtn .editShow .cosStyle .goinput {
+    display: inline-block;
+    width: 0.09rem;
+    height: 0.09rem;
+    background: url(../images/keyboard@2x.png) no-repeat center;
+    background-size: contain;
+}
+.editCtn .editShow .cosInput {
+    width: 85%;
+    margin-top: 0.021rem;
+    
+}
+.editCtn .editShow .cosInput .textareaCtn {
+    margin-left: 0.03rem;
+}
+.editCtn .editShow .cosInput .textareaCtn .textarea {
+    width: 100%;
+    height: 0.09rem;
+    resize: none;
+    outline: none;
+    box-sizing: border-box;
+    padding: 0.013rem 0.027rem;
+    padding-right: 0.087rem;
+    overflow: auto;
+    border: none;
+    border-bottom: 1px solid #1b96ff;
+    border-radius: 0;
+}
+.editCtn .editShow .cosInput .textareaCtn .faceBtn {
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: inline-block;
+    width: 0.09rem;
+    height: 0.09rem;
+    background: url(../images/expression@2x.png) no-repeat center;
+    background-size: contain;
+}
+.editCtn .editShow .cosInput .textareaCtn .faceBtn_focus {
+    background: url(../images/expression_click@2x.png) no-repeat center;
+    background-size: contain;
+}
+.editCtn .editShow .cosInput .inputBtn {
+    display: none;
+    width: 100%;
+    height: 0.093rem;
+    line-height: 0.083rem;
+    box-sizing: border-box;
+    background: #fff;
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+}
+.editCtn .editShow .cosBtn {
+    width: 15%;
+    margin-top: 0.02rem;
+}
+.editCtn .editShow .cosBtn .addbtn {
+    display: inline-block;
+    width: 0.09rem;
+    height: 0.09rem;
+    background: url(../images/add@2x.png) no-repeat center;
+    background-size: contain;
+}
+.editCtn .editShow .cosBtn .sendBtn {
+    display: inline-block;
+    display: none;
+    width: 100%;
+    height: 0.09rem;
+    line-height: 0.09rem;
+    background: #1b96ff;
+    color: #fff;
+}
+.editCtn .editHide {
+    display: none;
+    position: relative;
+    height: 0.573rem;
+    padding: 0 0.05rem;
+    box-sizing: border-box;
+}
+.editCtn .editHide .editCtn_com {
+    float: left;
+    text-align: center;
+    width: 20%;
+    height: 100%;
+}
+.editCtn .editHide .takePhotoCtn {
+    display: none;
+}
+.editCtn .editHide .editCtn_com span {
+    display: inline-block;
+    width: 0.12rem;
+    height: 0.12rem;
+    margin: 0.16rem 0 0.05rem 0;
+}
+.editCtn .editHide .editCtn_com p {
+    white-space: nowrap;
+    font-size: 12px;
+}
+.editCtn .editHide .editCtn_com .sendPic {
+    background: url(../images/picture@2x.png) no-repeat center;
+    background-size: contain;
+    overflow: hidden;
+}
+.editCtn .editHide .editCtn_com .takePhoto {
+    background: url(../images/camera@2x.png) no-repeat center;
+    background-size: contain;
+}
+.editCtn .editHide .editCtn_com .commonQue {
+    background: url(../images/problems@2x.png) no-repeat center;
+    background-size: contain;
+}
+.editCtn .editHide .editCtn_com .feedback {
+    background: url(../images/advice@2x.png) no-repeat center;
+    background-size: contain;
+}
+.editCtn .editHide .editCtn_com .leaveMsg {
+    background: url(../images/message@2x.png) no-repeat center;
+    background-size: contain;
+}
+
+.layui-layer-ico {
+    background: url(../images/icon.png) no-repeat;
+}
+.commonQueLayer {
+    display: none;
+}
+.MN_queList {
+    padding: 0.024rem 0.032rem;
+}
+.feedbackLayer {
+    display: none;
+    padding: 0.024rem 0 0.048rem 0;
+}
+.MN_marginCtnRadio {
+    margin-left: 0.032rem;
+    margin-top: 0.032rem;
+}
+.noSatiCtn {
+    padding: 0 0.032rem;
+}
+.noSatiCtn label {
+    padding: 0 0.032rem;
+}
+.leaveMsgLayer {
+    display: none;
+    padding: 0.024rem 0 0.048rem 0;
+}
+.leaveMsgLayer input {
+    width: 100%;
+    height: 0.107rem;
+    box-sizing: border-box;
+    outline: none;
+    border: none;
+    border-top: 1px solid #e6e6e6;
+    border-bottom: 1px solid #e6e6e6;
+    margin: 0.024rem 0;
+    padding: 0 0.032rem;
+}
+.leaveMsgLayer textarea, .feedbackLayer textarea {
+    margin: 0.024rem 0;
+    border: none;
+    border-top: 1px solid #e6e6e6;
+    border-bottom: 1px solid #e6e6e6;
+    padding: 0.02rem 0.032rem;
+    height: 0.213rem;
+    box-sizing: border-box;
+}
+.MN_commentBtn {
+    width: 0.936rem;
+    height: 0.12rem;
+    line-height: 0.12rem;
+    margin: 0.024rem auto;
+}
+.layui-layer-title {
+    padding: 0 80px 0 0.032rem;
+    background: #fff;
+}
+.layui-layer-setwin {
+    top: 0px;
+    right: 0.032rem;
+    padding: 12px 0px 12px 12px;
+}
+.layui-layer-page .layui-layer-content {
+    background: #f8f8f8;
+}
+
+.SC_frontCtn {
+    width: 4px;
+}
+
+.upFile {
+    display: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
