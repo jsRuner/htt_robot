@@ -6,6 +6,9 @@ if(!defined('IN_DISCUZ')) {
 runquery("
 DROP TABLE IF EXISTS cdb_httrobot_message");
 
+runquery("
+DROP TABLE IF EXISTS cdb_httrobot_question");
+
 
 
 
