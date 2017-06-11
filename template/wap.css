@@ -197,5 +197,19 @@ body, textarea {
 }
 
 
+#remind{
+    /*position: absolute;*/
+    display: none;
+}
+
+.remind-item{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #efefef;
+}
+
+
+
+
 
 

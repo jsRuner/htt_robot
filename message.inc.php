@@ -102,7 +102,7 @@ showformfooter();
 
 
 
-echo '<tr class="header"><th>'.$Plang['username'].'</th><th>'.$lang['ip'].'</th><th>'.$Plang['dateline'].'</th><th>'.$Plang['message'].'</th><th>'.$Plang['reply'].'</th><th></th></tr>';
+echo '<tr class="header"><th>'.$Plang['username'].'</th><th>'.$lang['ip'].'</th><th>'.$Plang['dateline'].'</th><th>'.$Plang['message'].'</th><th>'.$Plang['reply'].'</th><th>满意/不满意</th><th></th></tr>';
 
 if(!$resultempty) {
 
@@ -113,6 +113,19 @@ if(!$resultempty) {
     $i = 0;
     foreach($messages as $message) {
 
+        switch ($message['assess']){
+            case 1:
+                $assess = '满意';
+                break;
+            case 2:
+                $assess = '不满意';
+                break;
+            default:
+                $assess='未评价';
+                break;
+
+        }
+
 
 
         $i++;
@@ -122,6 +135,7 @@ if(!$resultempty) {
             '<td>'.date('Y-m-d H:i:s',$message['dateline']).'</td>'.
             '<td>'.$message['message'].'</td>'.
             '<td>'.$message['reply'].'</td>'.
+            '<td>'.$assess.'</td>'.
             '<td><a id="p'.$i.'" onclick="ajaxget(this.href, this.id, \'\');return false" href="'.ADMINSCRIPT.'?action=plugins&operation=config&do='.$pluginid.'&identifier=htt_robot&formhash='.FORMHASH.'&pmod=message&id='.$message['id'].'&op=delete">['.$lang['delete'].']</a></td>
             </tr>';
     }

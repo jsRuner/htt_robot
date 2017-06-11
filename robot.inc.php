@@ -100,6 +100,55 @@ $robot_secret = $var['htt_robot']['robot_secret']; //secret
 
 $check = $var['htt_robot']['is_show'];  //1隐藏 2启用
 
+
+
+
+
+//处理满意与不满意。以及输入的提醒。
+$action = $_GET['action'];
+
+
+if (!empty($action) && $action == 'remind'){
+
+    $inputMsg  = trim($_GET['msg']);
+
+
+    if (empty($inputMsg)){
+        $questions = [];
+    }else{
+
+        $srchadd = "AND question like '%".daddslashes($inputMsg)."%'";
+        $questions = C::t('#htt_robot#question')->fetch_all_by_search($srchadd, 0, 5);
+    }
+    echo json_encode($questions);
+    exit();
+}
+
+if (!empty($action) && $action =='yes'){
+    $data['assess'] = '1';
+    $condition='id='.$_GET['aid'];
+    DB::update("httrobot_message",$data,$condition);
+    $data=[
+        'msg'=>1
+    ];
+    echo json_encode($data);
+    exit();
+}
+
+if (!empty($action) && $action =='no'){
+    $data['assess'] = '2';
+    $condition='id='.$_GET['aid'];
+    DB::update("httrobot_message",$data,$condition);
+    $data=[
+        'msg'=>2
+    ];
+    echo json_encode($data);
+    exit();
+}
+
+
+
+
 $info = $_GET['msg'];
 
 //如果是点我。则执行另外的逻辑。
@@ -136,7 +185,6 @@ if ($robot_type == 2) {
     $returnmsg=preg_replace('((\d)+,{1})','',$returnmsg);
 }
 
-echo json_encode(array('msg' =>$returnmsg));
 
 if($_G['charset'] == 'gbk'){
 
@@ -164,4 +212,18 @@ $insert_array = array(
 
 
 //存到记录中去。
-DB::insert("httrobot_message",$insert_array);
+$id = DB::insert("httrobot_message",$insert_array,true);
+
+//返回id。方便提交满意与不满意之分。
+
+$data=[
+    'id'=>$id,
+    'msg'=>$returnmsg
+];
+echo json_encode($data);
+
+
+
+
+
+
