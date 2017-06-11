@@ -3,6 +3,12 @@
  */
 var jq = jQuery.noConflict();
 
+var site_url = jq('#site_url').val();
+
+console.log(site_url)
+
+
+
 Date.prototype.Format = function (fmt) { //author: meizz
     var o = {
         "M+": this.getMonth() + 1, //月份
@@ -70,7 +76,7 @@ function sendMsg() {
     //发送ajax请求。
 
     jq.ajax({
-        url:'http://bbs32.aoyait.dev/plugin.php?id=htt_robot:robot',
+        url:site_url+'/plugin.php?id=htt_robot:robot',
         type:'get',
         data:{msg:inputMsg,formhash:formhash},
         success:function (data) {
@@ -112,7 +118,7 @@ function khyes(obj) {
     var aid = jq(obj).attr('aid');
     console.log('满意id:'+aid);
     jq.ajax({
-        url:'http://bbs32.aoyait.dev/plugin.php?id=htt_robot:robot&action=yes',
+        url:site_url+'/plugin.php?id=htt_robot:robot&action=yes',
         type:'get',
         data:{aid:aid,formhash:formhash},
         success:function (data) {
@@ -136,7 +142,7 @@ function khno(obj) {
     jq('.chat-list-area').scrollTop(jq('.chat-list-area')[0].scrollHeight);
     var aid = jq(obj).attr('aid');
     jq.ajax({
-        url:'http://bbs32.aoyait.dev/plugin.php?id=htt_robot:robot&action=no',
+        url:site_url+'/plugin.php?id=htt_robot:robot&action=no',
         type:'get',
         data:{aid:aid,formhash:formhash},
         success:function (data) {
@@ -168,7 +174,7 @@ jq('#textarea').bind("input propertychange",function(){
 
     //发送请求
     jq.ajax({
-        url:'http://bbs32.aoyait.dev/plugin.php?id=htt_robot:robot&action=remind',
+        url:site_url+'/plugin.php?id=htt_robot:robot&action=remind',
         type:'get',
         data:{msg:jq(this).val(),formhash:formhash},
         success:function (data) {

@@ -29,6 +29,8 @@ if (empty($site_url)) {
     $site_url = $_G['siteurl'];
 }
 
+$site_url = trim($site_url,'/');
+
 //判断当前访问的用户组和版块。游客的显示。
 $gids  = array_filter(unserialize($groupstr));
 
