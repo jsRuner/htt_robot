@@ -24,6 +24,7 @@ function set_chatScroll_height() {
     var winW = jq(window).width(),
         winH = jq(window).height();
     jq('html').css('fontSize', winW<750 ? winW : 750);
+    // winH = winH<667?winH:667;
     jq('.chat-list-area').height(winH - jq('.editCtn').outerHeight());
     jq('.container').height(winH);
     console.log('修正尺寸函数执行了一次');
@@ -47,7 +48,19 @@ var formhash = jq('#formhash').val();
 
 function sendMsg() {
     console.log('点击了发送');
-    var inputMsg = jq('#textarea').val();
+    //关闭提示。
+    jq('#remind').hide();
+    //设置高度。
+    set_chatScroll_height();
+
+    var inputMsg = jq('#textarea').val().replace(/\s/g, "");
+
+    if (inputMsg.length <=0){
+        console.log('输入为空');
+        return;
+    }
+
+
     //清空。
     jq('#textarea').val('');
     //填充聊天记录。
@@ -62,7 +75,7 @@ function sendMsg() {
         data:{msg:inputMsg,formhash:formhash},
         success:function (data) {
             console.log('成功返回:'+data);
-            var asHtml='<div class="MN_answer" aid="'+data.id+'" cluid="ce78865b-dd42-4cf1-bf91-450248ac453b"> <div class="MN_kftime">'+new Date().Format("MM月dd日 hh:mm:ss")+'</div><div class="MN_kfName">卡农社区客服</div><div class="MN_kfCtn"><img class="MN_kfImg" src="source/plugin/htt_robot/template/assets/robot.png"><i class="MN_kfTriangle1 MN_triangle"></i><i class="MN_kfTriangle2 MN_triangle"></i>'+data.msg+'<div class="MN_helpful"><span class="MN_yes" aid="'+data.id+'">满意</span><span class="MN_no" aid="'+data.id+'">不满意</span></div></div></div>';
+            var asHtml='<div class="MN_answer" aid="'+data.id+'" cluid="ce78865b-dd42-4cf1-bf91-450248ac453b"> <div class="MN_kftime">'+new Date().Format("MM月dd日 hh:mm:ss")+'</div><div class="MN_kfName">'+jq('#robot_name').val()+'</div><div class="MN_kfCtn"><img class="MN_kfImg" src="source/plugin/htt_robot/template/assets/robot.png"><i class="MN_kfTriangle1 MN_triangle"></i><i class="MN_kfTriangle2 MN_triangle"></i>'+data.msg+'<div class="MN_helpful"><span class="MN_yes" aid="'+data.id+'">满意</span><span class="MN_no" aid="'+data.id+'">不满意</span></div></div></div>';
             jq('.chat-list-area').append(asHtml);
 
         },
@@ -90,10 +103,12 @@ function sendMsg() {
 
 }
 
+
 function khyes(obj) {
     console.log('客户满意');
     console.log(obj);
-    jq(obj).parent().html('谢谢您的支持哦~卡农社区客服会更努力哒!');
+    jq(obj).parent().html('谢谢您的支持哦~'+jq('#robot_name').val()+'会更努力哒!');
+    jq('.chat-list-area').scrollTop(jq('.chat-list-area')[0].scrollHeight);
     var aid = jq(obj).attr('aid');
     console.log('满意id:'+aid);
     jq.ajax({
@@ -109,6 +124,7 @@ function khyes(obj) {
         },
         complete:function () {
             console.log('发送完成');
+
         }
     });
 
@@ -116,7 +132,8 @@ function khyes(obj) {
 
 function khno(obj) {
     console.log('客户不满意');
-    jq(obj).parent().html('呜呜呜~不好意思啦,卡农社区客服会日夜刻苦学习,希望下次帮您排忧');
+    jq(obj).parent().html('呜呜呜~不好意思啦,'+jq('#robot_name').val()+'会日夜刻苦学习,希望下次帮您排忧');
+    jq('.chat-list-area').scrollTop(jq('.chat-list-area')[0].scrollHeight);
     var aid = jq(obj).attr('aid');
     jq.ajax({
         url:'http://bbs32.aoyait.dev/plugin.php?id=htt_robot:robot&action=no',
@@ -141,10 +158,7 @@ function remindQuestion(obj) {
     //发送消息。
     jq('#textarea').val(jq(obj).html());
     sendMsg()
-    //关闭提示。
-    jq('#remind').hide();
-    //设置高度。
-    set_chatScroll_height();
+
 }
 
 jq('#textarea').bind("input propertychange",function(){
@@ -160,7 +174,7 @@ jq('#textarea').bind("input propertychange",function(){
         success:function (data) {
             console.log('成功返回:'+data);
 
-            if (data == ''){
+            if (data == '' || data.length > 10 ){
                 console.log('无内容');
                 jq('#remind').hide();
                 //设置高度。

@@ -103,7 +103,6 @@ $check = $var['htt_robot']['is_show'];  //1隐藏 2启用
 
 
 
-
 //处理满意与不满意。以及输入的提醒。
 $action = $_GET['action'];
 

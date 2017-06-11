@@ -101,32 +101,31 @@
             <item id="1">
                 <item id="displayorder"><![CDATA[1]]></item>
                 <item id="title"><![CDATA[机器人类型]]></item>
-                <item id="description"><![CDATA[默认是茉莉机器人]]></item>
+                <item id="description"><![CDATA[]]></item>
                 <item id="variable"><![CDATA[robot_type]]></item>
                 <item id="type"><![CDATA[select]]></item>
-                <item id="value"><![CDATA[2]]></item>
-                <item id="extra"><![CDATA[1=图灵机器人
-2=茉莉机器人]]></item>
+                <item id="value"><![CDATA[1]]></item>
+                <item id="extra"><![CDATA[1=图灵机器人]]></item>
             </item>
 
 
             <item id="2">
                 <item id="displayorder"><![CDATA[2]]></item>
                 <item id="title"><![CDATA[机器人key]]></item>
-                <item id="description"><![CDATA[图灵只需要填写这个。茉莉机器人则需要填写key与密钥.]]></item>
+                <item id="description"><![CDATA[]]></item>
                 <item id="variable"><![CDATA[robot_key]]></item>
                 <item id="type"><![CDATA[text]]></item>
-                <item id="value"><![CDATA[xxxxxxxxxxxxxxxxxxxxxx]]></item>
+                <item id="value"><![CDATA[f2bc71930a86449f87a945b0b4d77ad1]]></item>
                 <item id="extra"><![CDATA[]]></item>
             </item>
 
             <item id="3">
                 <item id="displayorder"><![CDATA[3]]></item>
                 <item id="title"><![CDATA[机器人secret]]></item>
-                <item id="description"><![CDATA[茉莉机器人必填.图灵的话则可以留空]]></item>
+                <item id="description"><![CDATA[]]></item>
                 <item id="variable"><![CDATA[robot_secret]]></item>
                 <item id="type"><![CDATA[text]]></item>
-                <item id="value"><![CDATA[]]></item>
+                <item id="value"><![CDATA[1a4890f3d9eed5deONOFF]]></item>
                 <item id="extra"><![CDATA[]]></item>
             </item>
 
@@ -215,7 +214,6 @@
             <item id="scriptlang">
 
                 <item id="help_doc"><![CDATA[<li>图灵官网:http://www.tuling123.com/</li>
-<li>茉莉机器人官网:http://www.itpk.cn/</li>
 <li>复制接口参数，填入插件即可。</li>
 <li>let's go!</li>]]></item>
 
@@ -250,6 +248,8 @@
             </item>
 
             <item id="templatelang">
+                <item id="zhichiVoice"><![CDATA[开/光 声音]]></item>
+
                 <item id="zhichiVoice"><![CDATA[开/光 声音]]></item>
                 <item id="zhichiMin"><![CDATA[最小化]]></item>
                 <item id="zhichiMax"><![CDATA[最大化]]></item>
