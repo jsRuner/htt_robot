@@ -98,20 +98,11 @@
 
         <item id="var">
 
-            <item id="1">
-                <item id="displayorder"><![CDATA[1]]></item>
-                <item id="title"><![CDATA[机器人类型]]></item>
-                <item id="description"><![CDATA[]]></item>
-                <item id="variable"><![CDATA[robot_type]]></item>
-                <item id="type"><![CDATA[select]]></item>
-                <item id="value"><![CDATA[1]]></item>
-                <item id="extra"><![CDATA[1=图灵机器人]]></item>
-            </item>
 
 
             <item id="2">
                 <item id="displayorder"><![CDATA[2]]></item>
-                <item id="title"><![CDATA[机器人key]]></item>
+                <item id="title"><![CDATA[图灵key]]></item>
                 <item id="description"><![CDATA[]]></item>
                 <item id="variable"><![CDATA[robot_key]]></item>
                 <item id="type"><![CDATA[text]]></item>
@@ -119,21 +110,13 @@
                 <item id="extra"><![CDATA[]]></item>
             </item>
 
-            <item id="3">
-                <item id="displayorder"><![CDATA[3]]></item>
-                <item id="title"><![CDATA[机器人secret]]></item>
-                <item id="description"><![CDATA[]]></item>
-                <item id="variable"><![CDATA[robot_secret]]></item>
-                <item id="type"><![CDATA[text]]></item>
-                <item id="value"><![CDATA[1a4890f3d9eed5deONOFF]]></item>
-                <item id="extra"><![CDATA[]]></item>
-            </item>
+
 
 
             <item id="4">
                 <item id="displayorder"><![CDATA[4]]></item>
                 <item id="title"><![CDATA[机器人名称]]></item>
-                <item id="description"><![CDATA[机器人的名字,默认为小小付。]]></item>
+                <item id="description"><![CDATA[机器人的名字,默认为小小付。出现在聊天窗口]]></item>
                 <item id="variable"><![CDATA[robot_name]]></item>
                 <item id="type"><![CDATA[text]]></item>
                 <item id="value"><![CDATA[小小付]]></item>
@@ -182,7 +165,7 @@
             <item id="8">
                 <item id="displayorder"><![CDATA[8]]></item>
                 <item id="title"><![CDATA[开关设置]]></item>
-                <item id="description"><![CDATA[不需要时可以设置为隐藏。默认开启]]></item>
+                <item id="description"><![CDATA[不需要时可以设置为隐藏。默认开启。隐藏后则无法访问机器人]]></item>
                 <item id="variable"><![CDATA[is_show]]></item>
                 <item id="type"><![CDATA[select]]></item>
                 <item id="value"><![CDATA[1]]></item>

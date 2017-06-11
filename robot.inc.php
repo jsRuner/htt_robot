@@ -92,11 +92,10 @@ global $_G;
 loadcache('plugin');
 $var = $_G['cache']['plugin'];
 $groupstr = $var['htt_robot']['groups']; //用户组。哪些用户组可以看到机器人。
+
 $welcome_msg = $var['htt_robot']['welcome_msg']; //欢迎语
-$robot_type = $var['htt_robot']['robot_type']; //机器人类型
 
 $robot_key = $var['htt_robot']['robot_key']; //key
-$robot_secret = $var['htt_robot']['robot_secret']; //secret
 
 $check = $var['htt_robot']['is_show'];  //1隐藏 2启用
 
@@ -148,33 +147,11 @@ if (!empty($action) && $action =='no'){
 
 
 
-$info = $_GET['msg'];
-
-//如果是点我。则执行另外的逻辑。
-if($info == 'click me'){
-    $srchadd .= " AND  `message` != '' ";
-    $count = C::t('#htt_robot#message')->count_by_search($srchadd);
-    if($count==0){
-        $returnmsg = lang('plugin/htt_robot', 'no_message') ;
-    }else{
-        $messages = C::t('#htt_robot#message')->fetch_all($srchadd);
-        $random_message_index = rand(1,$count-1);
-        $returnmsg = $messages[$random_message_index]['message'];
-
-        if($_G['charset'] == 'gbk') {
-            $returnmsg =   iconv("gbk", "utf-8",$returnmsg);
-        }
-    }
-    echo json_encode(array('msg' =>$returnmsg));
-    exit();
-}
+$info = trim($_GET['msg']);
 
 
-//如果是茉莉机器人
-if ($robot_type == 2) {
-    $url = "http://i.itpk.cn/api.php?question=".urlencode($info)."&api_key=$robot_key&api_secret=$robot_secret";
-    $returnmsg = dfsockopen($url);
-}else{
+
+
     $url = 'http://www.tuling123.com/openapi/api?key=' . $robot_key . '&info=' . urlencode($info);
     $replystr = dfsockopen($url);
     $replyarr = json_decode($replystr, true);
@@ -182,7 +159,7 @@ if ($robot_type == 2) {
     $returnmsg = filterImg($returnmsg);
     $returnmsg = linkAdd($returnmsg);
     $returnmsg=preg_replace('((\d)+,{1})','',$returnmsg);
-}
+
 
 
 if($_G['charset'] == 'gbk'){
