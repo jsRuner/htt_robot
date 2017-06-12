@@ -149,6 +149,22 @@ if (!empty($action) && $action =='no'){
 
 $info = trim($_GET['msg']);
 
+//优先读取数据库的结果。如果存着不调用接口。
+$srchadd = "AND question like '%".daddslashes($info)."%'";
+$questions = C::t('#htt_robot#question')->fetch_all_by_search($srchadd, 0, 5);
+
+if ($questions){
+
+    $returnmsg = $questions[0]['answer'];
+
+    if($_G['charset'] == 'gbk'){
+
+        $info =   iconv("utf-8", "gbk",$info);
+        $returnmsg =   iconv("utf-8", "gbk",$returnmsg);
+
+    }
+
+}else{
 
 
 
@@ -162,12 +178,15 @@ $info = trim($_GET['msg']);
 
 
 
-if($_G['charset'] == 'gbk'){
+    if($_G['charset'] == 'gbk'){
 
-    $info =   iconv("utf-8", "gbk",$info);
-    $returnmsg =   iconv("utf-8", "gbk",$returnmsg);
+        $info =   iconv("utf-8", "gbk",$info);
+        $returnmsg =   iconv("utf-8", "gbk",$returnmsg);
 
+    }
 }
+
+
 
 
 if(empty($_G['username'])){

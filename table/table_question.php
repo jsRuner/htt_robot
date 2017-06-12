@@ -20,6 +20,12 @@ class table_question extends discuz_table
         parent::__construct();
     }
 
+    public function inser_questions($data)
+    {
+        return DB::insert($this->_table,$data);
+
+    }
+
 
     public function fetch_all_by_username($question) {
         return DB::fetch_all("SELECT * FROM %t WHERE question=%s", array($this->_table, $question));

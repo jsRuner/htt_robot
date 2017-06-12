@@ -76,9 +76,6 @@ class plugin_htt_robot{
 //        include_once template('htt_robot:robot');
 //        return $robot_html;
 
-        if(checkmobile()){
-            return '';
-        }
 
         //注意这里是取否。
         if(!($check == '1') ){
