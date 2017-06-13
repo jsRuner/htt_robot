@@ -29,6 +29,29 @@ function input_csv($handle)
     return $out;
 }
 
+function downfile($file)
+{
+    ob_end_clean();
+    $filename=realpath($file); //文件名
+    $fp = fopen($filename,"r");
+    $file_size = filesize($filename);
+    $date=date("Ymd-H:i:m");
+    Header( "Content-type:  application/octet-stream ");
+    Header( "Accept-Ranges:  bytes ");
+    Header( "Accept-Length: " .filesize($filename));
+    header( "Content-Disposition:  attachment;  filename= {$date}.csv");
+    $buffer = 1024;
+    $file_count = 0;
+    readfile($filename);
+    //向浏览器返回数据
+//    while(!feof($fp) && $file_count < $file_size){
+//        $file_con = fread($fp,$buffer);
+//        $file_count += $buffer;
+//        echo $file_con;
+//    }
+//    fclose($fp);
+}
+
 $Plang = $scriptlang['htt_robot'];
 
 
@@ -111,6 +134,10 @@ elseif($_GET['op'] == 'delete') {
     ajaxshowheader();
     echo $Plang['show_action_succeed'];
     ajaxshowfooter();
+}elseif($_GET['op'] == 'down'){
+    //下载模板。
+    downfile('source/plugin/htt_robot/111.csv');
+    exit();
 }
 
 $ppp = 50;
@@ -120,15 +147,8 @@ $page = max(1, intval($_GET['page']));
 
 //存在则追加参数。用户  分类  状态。
 if(!empty($_GET['question'])){
-//    $srchadd .= "AND username='".$_GET['username']."'";
-//    $extra .= '&username='.$_GET['username'];
     $srchadd .= "AND question='".daddslashes($_GET['question'])."'";
     $extra .= '&question='.daddslashes($_GET['question']);
-
-
-
-
-
 }
 
 
@@ -138,6 +158,10 @@ if($searchtext) {
 }
 
 loadcache('usergroups');
+showtips('
+<li>知识库表示如果用户提问优先采用该答案。</li>
+<li>知识库支持导入。必须符合格式。文件要求csv. <a href="'.ADMINSCRIPT.'?action=plugins&operation=config&do='.$pluginid.'&identifier=htt_robot&pmod=question&op=down">模板下载</a>(注意删除模板文件的最后3行)</li>
+<li>excel文件导出成csv的方法<a target="_blank" href="https://jingyan.baidu.com/article/5d6edee214719c99eadeece0.html">点我查看</a></li></li><li>let\'s go!</li>');
 
 showtableheader();
 showformheader('plugins&operation=config&do='.$pluginid.'&identifier=htt_robot&pmod=question', 'repeatsubmit');

@@ -95,6 +95,8 @@ if($searchtext) {
 
 loadcache('usergroups');
 
+
+
 showtableheader();
 showformheader('plugins&operation=config&do='.$pluginid.'&identifier=htt_robot&pmod=message', 'repeatsubmit');
 showsubmit('repeatsubmit', $Plang['search'], $lang['username'].': <input name="username" value="'.dhtmlspecialchars($_GET['username']).'" class="txt" />&nbsp;&nbsp;', $searchtext);
