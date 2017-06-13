@@ -162,7 +162,9 @@ if ($questions){
         $info =   iconv("utf-8", "gbk",$info);
         $returnmsg =   iconv("utf-8", "gbk",$returnmsg);
 
+
     }
+    $returnmsg = linkAdd($returnmsg);
 
 }else{
 
