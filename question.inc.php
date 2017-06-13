@@ -11,8 +11,23 @@ if(!defined('IN_DISCUZ') || !defined('IN_ADMINCP')) {
     exit('Access Denied');
 }
 
-//phpinfo();
-//exit();
+
+
+function input_csv($handle)
+{
+    $out = array ();
+    $n = 0;
+    while ($data = fgetcsv($handle, 10000))
+    {
+        $num = count($data);
+        for ($i = 0; $i < $num; $i++)
+        {
+            $out[$n][$i] = $data[$i];
+        }
+        $n++;
+    }
+    return $out;
+}
 
 $Plang = $scriptlang['htt_robot'];
 
@@ -31,64 +46,33 @@ if($_GET['op'] == 'add') {
         exit();
 
     }else{
+        $filename = $_FILES["questionfile"]["tmp_name"];
+        $handle = fopen($filename, 'r');
 
-        set_include_path('source/plugin/htt_robot/libs/');
-        include 'PHPExcel/IOFactory.php';
-//        $inputFileName = 'source/plugin/htt_robot/libs/11.xlsx';
-        $inputFileName = $_FILES["questionfile"]["tmp_name"];
-        echo 'Loading file ',pathinfo($inputFileName,PATHINFO_BASENAME),' using IOFactory to identify the format<br />';
-        $objPHPExcel = PHPExcel_IOFactory::load($inputFileName);
-        $sheetData = $objPHPExcel->getActiveSheet()->toArray(null,true,true,true);
-        $questions = [];
-        var_dump($sheetData);
-        for($i = 3; i< count($sheetData) ; $i++){
-            if (trim($sheetData[$i]['A']) == ''){
+        $result = input_csv($handle); //解析csv
+
+        $len_result = count($result);
+        if($len_result==0)
+        {
+            echo '没有任何数据！';
+            exit;
+        }
+        $currenttime = time();
+        for($i = 1; $i < $len_result; $i++) //循环获取各字段值
+        {
+            if (empty($result[$i][0])){
                 continue;
             }
             $data = [
-                'question'=>$sheetData[$i]['A'],
-                'answer'=>$sheetData[$i]['B'],
-                'dateline'=>time()
+                'question'=>$result[$i][0],
+                'answer'=>$result[$i][1],
+                'dateline'=>$currenttime,
             ];
-
             DB::insert('httrobot_question',$data);
         }
-//        $filename = 'source/plugin/htt_robot/libs/111.csv';
-//
-//        $handle = fopen($filename, 'r');
-//        $result = input_csv($handle); //解析csv
-//        $len_result = count($result);
-//        if($len_result==0)
-//        {
-//            echo '没有任何数据！';
-//            exit;
-//        }
-//
-//        echo '111';
-//
-//        $currenttime = time();
-//        for($i = 1; $i < $len_result; $i++) //循环获取各字段值
-//        {
-//            $question = iconv('gb2312', 'utf-8', $result[$i][0]); //中文转码
-//            $answer = iconv('gb2312', 'utf-8', $result[$i][1]);
-//            $dataline = $currenttime;
-//            $data_values .= "('$question','$answer','$dataline'),";
-//        }
-//        $data_values = substr($data_values,0,-1); //去掉最后一个逗号
-//
-//        echo $data_values;
-//        fclose($handle); //关闭指针
-//        $query = DB::query("insert into httrobot_question (question,answer,dateline) values $data_values"); //批量插入数据表中
-//        if($query)
-//        {
-//            echo '导入成功！';
-//        }else{
-//            echo '导入失败！';
-//        }
-//
-//        exit();
-        cpmsg('导入成功', 'action=plugins&operation=config&do='.$pluginid.'&identifier=htt_robot&pmod=question', 'succeed');
 
+        fclose($handle); //关闭指针
+        cpmsg('导入成功', 'action=plugins&operation=config&do='.$pluginid.'&identifier=htt_robot&pmod=question', 'succeed');
     }
 
 

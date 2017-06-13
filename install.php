@@ -27,11 +27,10 @@ CREATE TABLE `pre_httrobot_question` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `question` varchar(125) NOT NULL DEFAULT '' COMMENT '问题的标题',
   `answer` varchar(1000) NOT NULL DEFAULT '' COMMENT '问题的答案',
-  `dateline` datetime NOT NULL COMMENT '添加时间',
+  `dateline` int(11) NOT NULL COMMENT '添加时间',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=utf8;
 ");
-
 
 
 $finish = TRUE;
