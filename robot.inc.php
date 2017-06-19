@@ -100,6 +100,14 @@ $robot_key = $var['htt_robot']['robot_key']; //key
 $check = $var['htt_robot']['is_show'];  //1隐藏 2启用
 
 
+$rule = $var['htt_robot']['rule'];  //规则
+$answer = $var['htt_robot']['answer'];  //内容
+
+$rules = explode('#',$rule);
+
+
+
+
 
 
 //处理满意与不满意。以及输入的提醒。
@@ -186,6 +194,15 @@ if ($questions){
         $returnmsg =   iconv("utf-8", "gbk",$returnmsg);
 
     }
+    
+    //判断机器人得回答。如果是屏蔽词。则自动替换内容。
+    if (in_array($returnmsg,$rules)){
+        $returnmsg = $answer;
+    }
+
+
+
+
 }
 
 

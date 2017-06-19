@@ -147,10 +147,30 @@
                 <item id="extra"><![CDATA[]]></item>
             </item>
 
-
-
-
             <item id="7">
+                <item id="displayorder"><![CDATA[6]]></item>
+                <item id="title"><![CDATA[屏蔽内容]]></item>
+                <item id="description"><![CDATA[禁止机器回复的内容.支持多条,以#分割]]></item>
+                <item id="variable"><![CDATA[rule]]></item>
+                <item id="type"><![CDATA[text]]></item>
+                <item id="value"><![CDATA[醉了]]></item>
+                <item id="extra"><![CDATA[]]></item>
+            </item>
+
+            <item id="8">
+                <item id="displayorder"><![CDATA[6]]></item>
+                <item id="title"><![CDATA[替换内容]]></item>
+                <item id="description"><![CDATA[触发上一条设置,机器人会回复本设置内容]]></item>
+                <item id="variable"><![CDATA[answer]]></item>
+                <item id="type"><![CDATA[text]]></item>
+                <item id="value"><![CDATA[无法回答你得问题,请联系管理员。]]></item>
+                <item id="extra"><![CDATA[]]></item>
+            </item>
+
+
+
+
+            <item id="9">
                 <item id="displayorder"><![CDATA[7]]></item>
                 <item id="title"><![CDATA[站点域名]]></item>
                 <item id="description"><![CDATA[站点域名,例如 http://bbs.wuwenfu.cn 如果一直机器人一直回复脑袋坏掉了，请务必设置。]]></item>
@@ -162,7 +182,7 @@
 
 
 
-            <item id="8">
+            <item id="10">
                 <item id="displayorder"><![CDATA[8]]></item>
                 <item id="title"><![CDATA[开关设置]]></item>
                 <item id="description"><![CDATA[不需要时可以设置为隐藏。默认开启。隐藏后则无法访问机器人]]></item>
